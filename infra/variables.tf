@@ -39,3 +39,9 @@ variable "ssh_allowed_cidr" {
   type        = string
   default     = "0.0.0.0/32"
 }
+
+variable "container_image" {
+  description = "Imagem Docker da API publicada no GitHub Container Registry"
+  type        = string
+  default     = "ghcr.io/marcelo-bernardo/taskflow-devops:latest"
+}

@@ -110,7 +110,9 @@ resource "aws_instance" "app" {
   user_data = <<-EOT
     #!/bin/bash
     apt-get update -y
-    apt-get install -y python3-pip python3-venv git
+    apt-get install -y docker.io
+    systemctl enable --now docker
+    docker run -d --name taskflow-api --restart unless-stopped -p 5000:5000 ${var.container_image}
   EOT
 
   tags = {
